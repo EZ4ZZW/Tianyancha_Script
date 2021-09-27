@@ -85,6 +85,7 @@
         // CreditCode = document.getElementsByClassName("info-need-copy _creditcode")[0].innerHTML;
         // 注册地址
         var Addr = document.getElementsByClassName("table -striped-col -breakall")[0].getElementsByTagName("td")[41].innerText;
+        Addr = Addr.split("附近公司")[0];
         //Addr = document.getElementsByClassName("info-need-copy _zhuceaddr")[0].innerHTML; // 地址
         // 企业类型
         var CropType = document.getElementsByClassName("table -striped-col -breakall")[0].getElementsByTagName("td")[27].innerText;
@@ -118,7 +119,7 @@
                     // +  '经营范围: ' + BusinessRange + '\n'
                     // +  '营业期限: ' + BusinessTerm + '\n'
                     // +  '登记机关: ' + RegisterOrg;
-        
+
         //omit 企业类型  经营状态 成立日期 核准日期 经营范围 营业期限 登记机关
         var FinalStrList = [
         '公司名称: ' + CropName, '公司名称全拼: ' + CropNamePinyin,
