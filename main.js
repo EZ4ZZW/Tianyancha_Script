@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         天眼查企业信息复制脚本
 // @namespace    http://tampermonkey.net/
-// @version      v1.0.0
+// @version      v1.0.2
 // @description  天眼查企业信息复制脚本
 // @author       Coding_Panda
 // @match        https://www.tianyancha.com/company/*
@@ -86,6 +86,8 @@
         // 注册地址
         var Addr = document.getElementsByClassName("table -striped-col -breakall")[0].getElementsByTagName("td")[41].innerText;
         Addr = Addr.split("附近公司")[0];
+        var AddrPinyin = Addr.spell();
+        AddrPinyin = AddrPinyin.toLowerCase();
         //Addr = document.getElementsByClassName("info-need-copy _zhuceaddr")[0].innerHTML; // 地址
         // 企业类型
         var CropType = document.getElementsByClassName("table -striped-col -breakall")[0].getElementsByTagName("td")[27].innerText;
@@ -125,7 +127,8 @@
         '公司名称: ' + CropName, '公司名称全拼: ' + CropNamePinyin,
         '法人姓名: ' + LegalEntity, '法人姓名全拼格式1: ' + LegalEntityPinyinFormat1,
         '法人姓名全拼格式2: ' + LegalEntityPinyinFormat2,
-        '统一社会信用代码: ' + CreditCode, '注册地址: ' + Addr];
+        '统一社会信用代码: ' + CreditCode, '注册地址: ' + Addr,
+        '注册地址全拼: ' + AddrPinyin];
         // '企业类型: ' + CropName, '经营状态: ' + Condition,
         // '成立日期: ' + CreateTime, '核准日期: ' + VerifyTime,
         // '经营范围: ' + BusinessRange,
